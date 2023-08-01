@@ -3,9 +3,9 @@ import "./App.css";
 
 import React from "react";
 
-import ExpenseItem from "./components/ExpenseItem";
+import ExpenseItem from "./components/Expenses/ExpenseItem";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -31,6 +31,13 @@ function App() {
     },
   ];
 
+  // return React.createElement(
+  //   'div', 
+  //   {}, 
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(ExpenseItem, { items: expenses })
+  // );
+
   return (
     <div className="App">
       <h2>Let's get started!</h2>
@@ -41,9 +48,9 @@ function App() {
           amount={item.amount}
           date={item.date}
           locationOfExpenditure={item.locationOfExpenditure}
-        ></ExpenseItem>
+        />
       ))}
-    </div>
+      </div>
       {/* <ExpenseItem
         title={expenses[1].title}
         amount={expenses[1].amount}
