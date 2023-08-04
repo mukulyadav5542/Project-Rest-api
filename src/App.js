@@ -1,7 +1,7 @@
 //import logo from "./logo.svg";
 import "./App.css";
 
-import React from "react";
+import React, { useState } from "react";
 
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import NewExpense from "./components/NewExpense/NewExpense";
@@ -39,16 +39,19 @@ const App = () => {
   //   React.createElement(ExpenseItem, { items: expenses })
   // );
 
+  const [expenseData, setExpensesData] = useState(expenses)
+
   const addExpenseHandler = expense => {
-    console.log('In App.js');
+    // console.log('In App.js');
+    setExpensesData([...expenseData, expense])
     console.log(expense);
-  }
+  };
 
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler} />
       <div>
-      {expenses.map((item) => (
+      {expenseData.map((item) => (
         <ExpenseItem
           title={item.title}
           amount={item.amount}
