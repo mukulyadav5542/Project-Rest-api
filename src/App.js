@@ -3,7 +3,7 @@ import "./App.css";
 
 import React, { useState } from "react";
 
-import ExpenseItem from "./components/Expenses/ExpenseItem";
+import ExpensesList from './components/Expenses/ExpensesList';
 import NewExpense from "./components/NewExpense/NewExpense";
 import ExpensesFilter from "./components/Expenses/ExpensesFilter";
 
@@ -65,7 +65,7 @@ const App = () => {
     setFilteredYear(selectedYear);
   };
 
-  const filteredExpenses = expenses.filter(expense => {
+  const filteredExpenses = expenses.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
@@ -79,15 +79,7 @@ const App = () => {
             onChangeFilter={filterChangeHandler}
           />
         </div>
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-            locationOfExpenditure={expense.locationOfExpenditure}
-          />
-        ))}
+        <ExpensesList items={filteredExpenses} />
         {/* {filteredExpenses.map((item) => (
           <ExpenseItem
             key={item.id}
