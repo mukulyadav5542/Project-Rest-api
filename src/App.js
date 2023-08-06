@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import ExpensesList from './components/Expenses/ExpensesList';
 import NewExpense from "./components/NewExpense/NewExpense";
 import ExpensesFilter from "./components/Expenses/ExpensesFilter";
+import ExpensesChart from "./components/Expenses/ExpensesChart";
 
 const DUMMY_EXPENSES = [
   {
@@ -79,6 +80,7 @@ const App = () => {
             onChangeFilter={filterChangeHandler}
           />
         </div>
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList items={filteredExpenses} />
         {/* {filteredExpenses.map((item) => (
           <ExpenseItem
